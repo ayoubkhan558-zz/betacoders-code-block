@@ -12,26 +12,26 @@ export default memo(({ attributes, setAttributes }) => {
 	return (
 		<InspectorControls>
 			<PanelBody
-				title={__("HCB settings", "loos-hcb")}
+				title={__("HCB settings", "ayoub-bccb")}
 				initialOpen={true}
 			>
 				<RadioControl
 					label={__(
 						"Settings for displaying the number of lines",
-						"loos-hcb"
+						"ayoub-bccb"
 					)} // 行数の表示に関する設定
 					selected={isLineShow}
 					options={[
 						{
-							label: __("Do not set individually", "loos-hcb"), //個別で設定はしない
+							label: __("Do not set individually", "ayoub-bccb"), //個別で設定はしない
 							value: "undefined",
 						},
 						{
-							label: __("Display row count", "loos-hcb"), //行数を表示する
+							label: __("Display row count", "ayoub-bccb"), //行数を表示する
 							value: "on",
 						},
 						{
-							label: __("Do not display row count", "loos-hcb"), //行数を表示しない
+							label: __("Do not display row count", "ayoub-bccb"), //行数を表示しない
 							value: "off",
 						},
 					]}
@@ -43,20 +43,20 @@ export default memo(({ attributes, setAttributes }) => {
 				<RadioControl
 					label={__(
 						"Settings for displaying language name",
-						"loos-hcb"
+						"ayoub-bccb"
 					)} // 言語名の表示に関する設定
 					selected={isShowLang}
 					options={[
 						{
-							label: __("Do not set individually", "loos-hcb"), //個別で設定はしない
+							label: __("Do not set individually", "ayoub-bccb"), //個別で設定はしない
 							value: "",
 						},
 						{
-							label: __("Display language", "loos-hcb"), //言語を表示する
+							label: __("Display language", "ayoub-bccb"), //言語を表示する
 							value: "1",
 						},
 						{
-							label: __("Do not display language", "loos-hcb"), //言語を表示しない
+							label: __("Do not display language", "ayoub-bccb"), //言語を表示しない
 							value: "0",
 						},
 					]}

@@ -1,5 +1,5 @@
 {
-	"name": "loos-hcb/code-block",
+	"name": "ayoub-bccb/code-block",
 	"title": "Highlighing Code Block",
 	"category": "formatting",
 	"keywords": ["hcb", "code"],
@@ -41,7 +41,7 @@
 			"default": ""
 		}
 	},
-	"textdomain": "loos-hcb",
+	"textdomain": "ayoub-bccb",
 	"editorScript": "file:../../build/js/code-block/index.js",
 	"editorStyle": "file:../../build/css/hcb_editor.css"
 }

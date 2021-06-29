@@ -83,7 +83,7 @@ registerBlockType(metadata.name, {
 				type: "block",
 				blocks: ["core/code"], //整形済みブロック : 'core/preformatted',
 				transform: (attributes) => {
-					return createBlock("loos-hcb/code-block", {
+					return createBlock("ayoub-bccb/code-block", {
 						code: attributes.content,
 					});
 				},
@@ -193,7 +193,7 @@ registerBlockType(metadata.name, {
 							type="text"
 							className="filename_input"
 							value={fileName}
-							placeholder={__("file name", "loos-hcb")} //ファイル名
+							placeholder={__("file name", "ayoub-bccb")} //ファイル名
 							onChange={(e) => {
 								setAttributes({ fileName: e.target.value });
 							}}
@@ -202,7 +202,7 @@ registerBlockType(metadata.name, {
 							type="text"
 							className="num_input"
 							value={dataLineNum}
-							placeholder={__('"data-line" value', "loos-hcb")} //data-line属性値
+							placeholder={__('"data-line" value', "ayoub-bccb")} //data-line属性値
 							onChange={(e) => {
 								setAttributes({ dataLineNum: e.target.value });
 							}}

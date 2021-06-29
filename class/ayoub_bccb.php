@@ -1,15 +1,15 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-class LOOS_HCB
+class AYOUB_BCCB
 {
 
   /**
    * DB Names
    */
   const DB_NAME = [
-    'installed' => 'loos_hcb_installed',
-    'settings'  => 'loos_hcb_settings',
+    'installed' => 'AYOUB_BCCb_installed',
+    'settings'  => 'AYOUB_BCCb_settings',
   ];
 
   /**
@@ -64,9 +64,9 @@ class LOOS_HCB
   {
     $this->init();
     $this->set_path();
-    new LOOS_HCB_Scripts();
-    new LOOS_HCB_Mce();
-    new LOOS_HCB_Menu();
+    new AYOUB_BCCB_Scripts();
+    new AYOUB_BCCB_Mce();
+    new AYOUB_BCCB_Menu();
 
     // Set linenum
     add_filter('the_content', function ($content) {
@@ -74,7 +74,7 @@ class LOOS_HCB
       // $content = preg_replace( '/class="prism([^"]*)on-numbers"/', 'class="prism$1line-numbers"', $content );
 
       //個別設定が未定義のブロックはベース設定に依存
-      if ('on' === LOOS_HCB::$settings['show_linenum']) {
+      if ('on' === AYOUB_BCCB::$settings['show_linenum']) {
         $content = str_replace('prism undefined-numbers', 'prism line-numbers', $content);
         // $content = preg_replace( '/class="prism([^"]*)undefined-numbers"/', 'class="prism$1line-numbers"', $content );
       }
@@ -101,7 +101,7 @@ class LOOS_HCB
         unset($option['support_langs']);
 
         // DB更新
-        update_option(LOOS_HCB::DB_NAME['settings'], $option);
+        update_option(AYOUB_BCCB::DB_NAME['settings'], $option);
       }
     }
 
@@ -126,7 +126,7 @@ class LOOS_HCB
       self::$prism_js_url = get_stylesheet_directory_uri() . '/' . self::$settings['prism_js_path'];
     } else {
 
-      self::$prism_js_url = LOOS_HCB_URL . 'assets/js/prism.js';
+      self::$prism_js_url = AYOUB_BCCB_URL . 'assets/js/prism.js';
     }
 
     // if (is_home()) {
@@ -137,10 +137,10 @@ class LOOS_HCB
 
       self::$coloring_css_url = get_stylesheet_directory_uri() . '/' . self::$settings['prism_css_path'];
     } else {
-      self::$coloring_css_url = LOOS_HCB_URL . 'build/css/coloring_' . self::$settings['front_coloring'] . '.css';
+      self::$coloring_css_url = AYOUB_BCCB_URL . 'build/css/coloring_' . self::$settings['front_coloring'] . '.css';
     }
 
     // Set editor coloring file url
-    self::$editor_coloring_css_url = LOOS_HCB_URL . 'build/css/editor_' . self::$settings['editor_coloring'] . '.css';
+    self::$editor_coloring_css_url = AYOUB_BCCB_URL . 'build/css/editor_' . self::$settings['editor_coloring'] . '.css';
   }
 }

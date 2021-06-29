@@ -5,13 +5,13 @@ if (!defined('ABSPATH')) exit;
  * Add HCB setting page.
  */
 add_action('admin_menu', function () {
-  $pagename = __('[HCB] Settings', 'loos-hcb');
+  $pagename = __('[HCB] Settings', 'ayoub-bccb');
   add_options_page(
     $pagename,
     $pagename,
     'manage_options',
-    LOOS_HCB::MENU_SLUG,
-    ['LOOS_HCB_Menu', 'hcb_settings_cb']
+    AYOUB_BCCB::MENU_SLUG,
+    ['AYOUB_BCCB_Menu', 'hcb_settings_cb']
   );
 });
 
@@ -20,55 +20,55 @@ add_action('admin_menu', function () {
  */
 add_action('admin_init', function () {
   // データベースに保存されるオプション名を登録
-  register_setting(LOOS_HCB::MENU_SLUG, LOOS_HCB::DB_NAME['settings']);
+  register_setting(AYOUB_BCCB::MENU_SLUG, AYOUB_BCCB::DB_NAME['settings']);
 
   //「基本設定」セクション
   add_settings_section(
     'hcb_setting_section',
-    __('Basic settings', 'loos-hcb'),
+    __('Basic settings', 'ayoub-bccb'),
     '',
-    LOOS_HCB::MENU_SLUG
+    AYOUB_BCCB::MENU_SLUG
   );
 
   $basic_sections = [
     'show_lang' => [
-      'title' => __('Display language name', 'loos-hcb'),
+      'title' => __('Display language name', 'ayoub-bccb'),
       'args' => [
         'type' => 'checkbox',
-        'label' => __('Display language name in code block', 'loos-hcb'),
-        'desc' => __('If checked, the language type is displayed in the code on the site display side.', 'loos-hcb')
+        'label' => __('Display language name in code block', 'ayoub-bccb'),
+        'desc' => __('If checked, the language type is displayed in the code on the site display side.', 'ayoub-bccb')
       ]
     ],
     'show_linenum' => [
-      'title' => __('Display settings for the number of rows', 'loos-hcb'),
+      'title' => __('Display settings for the number of rows', 'ayoub-bccb'),
       'args' => [
         'type' => 'checkbox',
-        'label' => __('Show line count in code block', 'loos-hcb'),
-        'desc' => __('If checked, the number of lines will be displayed on the left end of the code on the site display side.', 'loos-hcb'),
+        'label' => __('Show line count in code block', 'ayoub-bccb'),
+        'desc' => __('If checked, the number of lines will be displayed on the left end of the code on the site display side.', 'ayoub-bccb'),
       ]
     ],
     'show_copy' => [
-      'title' => __('Copy button', 'loos-hcb'),
+      'title' => __('Copy button', 'ayoub-bccb'),
       'args' => [
         'type' => 'checkbox',
-        'label' => __('Show copy button in code block', 'loos-hcb'),
+        'label' => __('Show copy button in code block', 'ayoub-bccb'),
         'desc' => '',
       ]
     ],
     'font_smoothing' => [
-      'title' => __('Font smoothing', 'loos-hcb'),
+      'title' => __('Font smoothing', 'ayoub-bccb'),
       'args' => [
         'type' => 'checkbox',
-        'label' => __('Turn on font smoothing', 'loos-hcb'),
+        'label' => __('Turn on font smoothing', 'ayoub-bccb'),
         'desc' => sprintf(
-          __('Add %s and %s to the code block.', 'loos-hcb'),
+          __('Add %s and %s to the code block.', 'ayoub-bccb'),
           '<code>-webkit-font-smoothing: antialiased;</code>',
           '<code>-moz-osx-font-smoothing: grayscale;</code>'
         ),
       ]
     ],
     'front_coloring' => [
-      'title' => __('Cord coloring (front side)', 'loos-hcb'),
+      'title' => __('Cord coloring (front side)', 'ayoub-bccb'),
       'args' => [
         'type' => 'radio',
         'choices' => [
@@ -77,7 +77,7 @@ add_action('admin_init', function () {
       ]
     ],
     'editor_coloring' => [
-      'title' => __('Code coloring (editor side)', 'loos-hcb'),
+      'title' => __('Code coloring (editor side)', 'ayoub-bccb'),
       'args' => [
         'type' => 'radio',
         'choices' => [
@@ -86,19 +86,19 @@ add_action('admin_init', function () {
       ]
     ],
     'fontsize_pc' => [
-      'title' => __('Font Size', 'loos-hcb') . '(PC)',
+      'title' => __('Font Size', 'ayoub-bccb') . '(PC)',
       'args' => [
         'before' => 'font-size: ',
       ]
     ],
     'fontsize_sp' => [
-      'title' => __('Font Size', 'loos-hcb') . '(SP)',
+      'title' => __('Font Size', 'ayoub-bccb') . '(SP)',
       'args' => [
         'before' => 'font-size: ',
       ]
     ],
     'font_family' => [
-      'title' => __('"Font-family" in code', 'loos-hcb'),
+      'title' => __('"Font-family" in code', 'ayoub-bccb'),
       'args' => [
         'type' => 'textarea',
         'rows' => 2,
@@ -113,8 +113,8 @@ add_action('admin_init', function () {
     add_settings_field(
       $id,
       $data['title'],
-      ['LOOS_HCB_Menu', 'settings_field_cb'],
-      LOOS_HCB::MENU_SLUG,
+      ['AYOUB_BCCB_Menu', 'settings_field_cb'],
+      AYOUB_BCCB::MENU_SLUG,
       'hcb_setting_section',
       $args
     );
@@ -125,49 +125,49 @@ add_action('admin_init', function () {
    */
   add_settings_section(
     'hcb_setting_advanced',
-    __('Advanced settings', 'loos-hcb'),
+    __('Advanced settings', 'ayoub-bccb'),
     '',
-    LOOS_HCB::MENU_SLUG
+    AYOUB_BCCB::MENU_SLUG
   );
 
-  $help_desc = __('When you use each original file, please upload it in the theme folder.', 'loos-hcb') . '<br>' .
-    __('If you set the path to your own file, the default coloring file and prism.js file will not be loaded..', 'loos-hcb') .
+  $help_desc = __('When you use each original file, please upload it in the theme folder.', 'ayoub-bccb') . '<br>' .
+    __('If you set the path to your own file, the default coloring file and prism.js file will not be loaded..', 'ayoub-bccb') .
     '<br>' . sprintf(
-      __('* The currently loaded prism.js file can be downloaded at %s.', 'loos-hcb'),
-      '<a href="https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+c+csharp+bash+cpp+ruby+markup-templating+git+java+json+objectivec+php+sql+scss+python+typescript+swift&plugins=line-highlight+line-numbers" target="_blank">' . __('Here', 'loos-hcb') . '</a>'
+      __('* The currently loaded prism.js file can be downloaded at %s.', 'ayoub-bccb'),
+      '<a href="https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+c+csharp+bash+cpp+ruby+markup-templating+git+java+json+objectivec+php+sql+scss+python+typescript+swift&plugins=line-highlight+line-numbers" target="_blank">' . __('Here', 'ayoub-bccb') . '</a>'
     );
 
   $advanced_sections = [
     'support_langs' => [
-      'title' => __('Language set to include', 'loos-hcb'),
+      'title' => __('Language set to include', 'ayoub-bccb'),
       'args' => [
         'type' => 'textarea',
         'rows' => 16,
         'desc' => sprintf(
-          __('Write in the format of %s, separated by "," (comma).', 'loos-hcb'),
-          '<code>' . __('class-key:"language-name"', 'loos-hcb') . '</code>'
+          __('Write in the format of %s, separated by "," (comma).', 'ayoub-bccb'),
+          '<code>' . __('class-key:"language-name"', 'ayoub-bccb') . '</code>'
         ) . '<br>&emsp;- ' .
-          __('"class-key" is the class name used in prism.js (the part corresponding to "◯◯" in "lang- ◯◯")', 'loos-hcb') .
-          '<br> ' . __('* If you use a language that is not supported by default, please use it together with "Original prism.js" setting.', 'loos-hcb'),
-        'after' => '<pre class="default_support_langs"><code>' . LOOS_HCB::DEFAULT_LANGS . '</code></pre>',
+          __('"class-key" is the class name used in prism.js (the part corresponding to "◯◯" in "lang- ◯◯")', 'ayoub-bccb') .
+          '<br> ' . __('* If you use a language that is not supported by default, please use it together with "Original prism.js" setting.', 'ayoub-bccb'),
+        'after' => '<pre class="default_support_langs"><code>' . AYOUB_BCCB::DEFAULT_LANGS . '</code></pre>',
       ]
     ],
     'prism_css_path' => [
-      'title' => __('Original coloring file', 'loos-hcb'),
+      'title' => __('Original coloring file', 'ayoub-bccb'),
       'args' => [
         'before' => get_stylesheet_directory_uri() . '/ ',
-        'desc' => __('Load your own CSS file for code coloring.', 'loos-hcb'),
+        'desc' => __('Load your own CSS file for code coloring.', 'ayoub-bccb'),
       ]
     ],
     'prism_js_path' => [
-      'title' => __('Original prism.js', 'loos-hcb'),
+      'title' => __('Original prism.js', 'ayoub-bccb'),
       'args' => [
         'before' => get_stylesheet_directory_uri() . '/ ',
-        'desc' => __('You can use the prism.js file corresponding to your own language set.', 'loos-hcb'),
+        'desc' => __('You can use the prism.js file corresponding to your own language set.', 'ayoub-bccb'),
       ]
     ],
     'hcb_help' => [
-      'title' => __('help', 'loos-hcb'),
+      'title' => __('help', 'ayoub-bccb'),
       'args' => [
         'type' => '',
         'desc' => $help_desc
@@ -182,8 +182,8 @@ add_action('admin_init', function () {
     add_settings_field(
       $id,
       $data['title'],
-      ['LOOS_HCB_Menu', 'settings_field_cb'],
-      LOOS_HCB::MENU_SLUG,
+      ['AYOUB_BCCB_Menu', 'settings_field_cb'],
+      AYOUB_BCCB::MENU_SLUG,
       'hcb_setting_advanced',
       $args
     );
@@ -191,7 +191,7 @@ add_action('admin_init', function () {
 });
 
 
-class LOOS_HCB_Menu
+class AYOUB_BCCB_Menu
 {
 
   /**
@@ -200,10 +200,10 @@ class LOOS_HCB_Menu
   public static function hcb_settings_cb()
   {
     echo '<div class="wrap hcb_setting">' .
-      '<h1>' . __('BetaCoders Code Block settings', 'loos-hcb') . '</h1>' .
+      '<h1>' . __('BetaCoders Code Block settings', 'ayoub-bccb') . '</h1>' .
       '<form action="options.php" method="post">';
-    do_settings_sections(LOOS_HCB::MENU_SLUG);
-    settings_fields(LOOS_HCB::MENU_SLUG); // register_setting() の グループ名に一致させる
+    do_settings_sections(AYOUB_BCCB::MENU_SLUG);
+    settings_fields(AYOUB_BCCB::MENU_SLUG); // register_setting() の グループ名に一致させる
     submit_button();
     echo '</form></div>';
   }
@@ -248,8 +248,8 @@ class LOOS_HCB_Menu
   {
 
     $id = $args['id'];
-    $name = LOOS_HCB::DB_NAME['settings'] . '[' . $id . ']';
-    $value = LOOS_HCB::$settings[$id];
+    $name = AYOUB_BCCB::DB_NAME['settings'] . '[' . $id . ']';
+    $value = AYOUB_BCCB::$settings[$id];
 
     echo $args['before'] . '<input id="' . $id . '" name="' . $name . '" type="' . $args['input_type'] . '" value="' . $value . '" />' . $args['after'];
   }
@@ -261,8 +261,8 @@ class LOOS_HCB_Menu
   {
 
     $id = $args['id'];
-    $name = LOOS_HCB::DB_NAME['settings'] . '[' . $id . ']';
-    $value = LOOS_HCB::$settings[$id];
+    $name = AYOUB_BCCB::DB_NAME['settings'] . '[' . $id . ']';
+    $value = AYOUB_BCCB::$settings[$id];
 
     echo '<div class="hcb_field_textarea ' . $id . '">' .
       '<textarea id="' . $id . '" name="' . $name . '" type="text" class="regular-text" rows="' . $args['rows'] . '" >' .
@@ -277,8 +277,8 @@ class LOOS_HCB_Menu
   {
 
     $id = $args['id'];
-    $name = LOOS_HCB::DB_NAME['settings'] . '[' . $id . ']';
-    $value = LOOS_HCB::$settings[$id];
+    $name = AYOUB_BCCB::DB_NAME['settings'] . '[' . $id . ']';
+    $value = AYOUB_BCCB::$settings[$id];
 
     $fields = '';
     foreach ($args['choices'] as $key => $val) {
@@ -301,8 +301,8 @@ class LOOS_HCB_Menu
   {
 
     $id = $args['id'];
-    $name = LOOS_HCB::DB_NAME['settings'] . '[' . $id . ']';
-    $value = LOOS_HCB::$settings[$id];
+    $name = AYOUB_BCCB::DB_NAME['settings'] . '[' . $id . ']';
+    $value = AYOUB_BCCB::$settings[$id];
 
     $checked = checked($value, 'on', false);
     echo '<input type="hidden" name="' . $name .  '" value="off">' .

@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-class LOOS_HCB_Mce
+class AYOUB_BCCB_Mce
 {
 
   /**
@@ -9,10 +9,10 @@ class LOOS_HCB_Mce
    */
   public function __construct()
   {
-    add_action('mce_css', ['LOOS_HCB_Mce', 'hook_mce_css']);
-    add_action('mce_external_plugins', ['LOOS_HCB_Mce', 'hook_mce_external_plugins'], 20);
-    add_action('tiny_mce_before_init', ['LOOS_HCB_Mce', 'hook_tiny_mce_before_init']);
-    add_action('mce_buttons_2', ['LOOS_HCB_Mce', 'hook_mce_buttons_2']);
+    add_action('mce_css', ['AYOUB_BCCB_Mce', 'hook_mce_css']);
+    add_action('mce_external_plugins', ['AYOUB_BCCB_Mce', 'hook_mce_external_plugins'], 20);
+    add_action('tiny_mce_before_init', ['AYOUB_BCCB_Mce', 'hook_tiny_mce_before_init']);
+    add_action('mce_buttons_2', ['AYOUB_BCCB_Mce', 'hook_mce_buttons_2']);
   }
 
   /**
@@ -23,9 +23,9 @@ class LOOS_HCB_Mce
 
     if (!empty($mce_css)) $mce_css .= ',';
 
-    $mce_css .= LOOS_HCB_URL . 'build/css/hcb_editor.css';
+    $mce_css .= AYOUB_BCCB_URL . 'build/css/hcb_editor.css';
     $mce_css .= ',';
-    $mce_css .= LOOS_HCB::$editor_coloring_css_url;
+    $mce_css .= AYOUB_BCCB::$editor_coloring_css_url;
     return $mce_css;
   }
 
@@ -34,7 +34,7 @@ class LOOS_HCB_Mce
    */
   public static function hook_mce_external_plugins($plugins)
   {
-    $plugins['hcb_external_script'] = LOOS_HCB_URL . 'assets/js/hcb_mce_button.js';
+    $plugins['hcb_external_script'] = AYOUB_BCCB_URL . 'assets/js/hcb_mce_button.js';
     return $plugins;
   }
 

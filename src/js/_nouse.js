@@ -2,7 +2,7 @@
  * Valid Blocks - 高度な設定を追加するブロックを指定
  */
 function isValidBlockType(blockName) {
-	const validBlocks = ["loos-hcb/code-block"];
+	const validBlocks = ["ayoub-bccb/code-block"];
 	return -1 !== validBlocks.indexOf(blockName);
 }
 
@@ -18,12 +18,12 @@ function isValidBlockType(blockName) {
  */
 function addSaveProps(extraProps, blockType, attributes) {
 	if (isValidBlockType(blockType.name)) {
-		// 「wp-block-loos-hcb-code-block」をつけない
+		// 「wp-block-ayoub-bccb-code-block」をつけない
 		extraProps.className = attributes.className;
 	}
 	return extraProps;
 }
-// addFilter("blocks.getSaveContent.extraProps", "loos-hcb/add-props", addSaveProps);
+// addFilter("blocks.getSaveContent.extraProps", "ayoub-bccb/add-props", addSaveProps);
 
 /**
  * ベータ版での設定値によるバリデーション回避
@@ -34,7 +34,7 @@ function addSaveProps(extraProps, blockType, attributes) {
  */
 function beforeValidation(attributes, settings, content) {
 	//console.log(settings.name);
-	if ("loos-hcb/code-block" === settings.name) {
+	if ("ayoub-bccb/code-block" === settings.name) {
 		if ("undefined" === typeof attributes.preClass) {
 			let isLineShow = attributes.isLineShow;
 			if ("undefined" === typeof isLineShow) {
@@ -47,4 +47,4 @@ function beforeValidation(attributes, settings, content) {
 	}
 	return attributes;
 }
-// addFilter("blocks.getBlockAttributes", "loos-hcb/before-validation", beforeValidation);
+// addFilter("blocks.getBlockAttributes", "ayoub-bccb/before-validation", beforeValidation);

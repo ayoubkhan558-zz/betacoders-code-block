@@ -5,7 +5,7 @@
 ・mainPHPのバージョン定数
 
 # package.json の po2json コマンド を書き換え
-"po2json": "po2json languages/loos-hcb-ja.po languages/loos-hcb-ja-hcb-blocks.json -f jed"
+"po2json": "po2json languages/ayoub-bccb-ja.po languages/ayoub-bccb-ja-hcb-blocks.json -f jed"
 
 po2jsonの実行コード
 $ npm run po2json
