@@ -48,13 +48,13 @@ class AYOUB_BCCB_Scripts
     // if (!is_page()) {
     //   echo "this is snippets page";
     // }
-    // if (is_post_type_archive('snippets') || is_post_type_archive('post') || is_post_type_archive('cheatsheets')) {
+    // if (is_post_type_archive('snippet') || is_post_type_archive('post') || is_post_type_archive('cheatsheets')) {
     //   echo "<h1>this is snippets snippets page</h1>";
     // }
     if (is_singular()) {
       // echo "<h1>is_singular snippets</h1>";
     }
-    if (is_singular('snippets')) {
+    if (is_singular('snippet')) {
       // echo "<h1>is_singular snippets</h1>";
     }
 
